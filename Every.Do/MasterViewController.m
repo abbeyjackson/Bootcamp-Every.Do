@@ -10,10 +10,12 @@
 #import "DetailViewController.h"
 #import "ToDo.h"
 #import "ToDoTableViewCell.h"
+#import "AddItemViewController.h"
 
 @interface MasterViewController ()
 
 @property NSMutableArray *toDoItemsArray;
+
 @end
 
 @implementation MasterViewController
@@ -52,9 +54,14 @@
     if (!self.toDoItemsArray) {
         self.toDoItemsArray = [[NSMutableArray alloc] init];
     }
-    [self.toDoItemsArray insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self performSegueWithIdentifier:@"addToDoItem" sender:nil];
+    
+//    ToDo *item01 = [[ToDo alloc]initWithTitle:@"addd " itemDescription:@"bananas, bread, milk" itemPriority:3 andIsComplete:NO];
+//
+//    [self.toDoItemsArray insertObject:item01 atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Segues
@@ -65,6 +72,13 @@
         ToDo *toDoItem = self.toDoItemsArray[indexPath.row];
         [[segue destinationViewController] setDetailItem:toDoItem];
     }
+}
+
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    AddItemViewController *source = [segue sourceViewController];
+    ToDo *toDoItem = source.toDoItem;
+    [self.toDoItemsArray addObject:toDoItem];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table View

@@ -7,6 +7,8 @@
 //
 
 #import "AddItemViewController.h"
+#import "MasterViewController.h"
+#import "ToDo.h"
 
 @interface AddItemViewController ()
 
@@ -23,19 +25,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)addItemCancelButton:(id)sender {
-}
-- (IBAction)addItemDoneButton:(id)sender {
-}
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    self.toDoItem = [[ToDo alloc]initWithTitle:self.addToDoItemTitle.text itemDescription:self.addToDoItemDescription.text itemPriority:[self.addToDoItemPriority.text intValue] andIsComplete:NO];
 }
-*/
+
 
 @end

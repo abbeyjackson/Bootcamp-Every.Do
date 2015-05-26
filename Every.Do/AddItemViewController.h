@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ToDo;
 
 @interface AddItemViewController : UIViewController<UITextFieldDelegate>
 
@@ -14,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *addToDoItemTitle;
 @property (weak, nonatomic) IBOutlet UITextField *addToDoItemDescription;
 @property (weak, nonatomic) IBOutlet UITextField *addToDoItemPriority;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (nonatomic) ToDo *toDoItem;
 
 @end
