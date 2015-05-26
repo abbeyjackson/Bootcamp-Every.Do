@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2B73079F-8E5C-46D5-8B08-6C2A15F99741</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BE6F1FC872EC042CF5004E594629E350C6AAA3F8</key>
+		<string>https://github.com/earthabbey/Every.Do.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Every.Do.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BE6F1FC872EC042CF5004E594629E350C6AAA3F8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/earthabbey/Every.Do.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BE6F1FC872EC042CF5004E594629E350C6AAA3F8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BE6F1FC872EC042CF5004E594629E350C6AAA3F8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Every.Do</string>
+		</dict>
+	</array>
+</dict>
+</plist>
