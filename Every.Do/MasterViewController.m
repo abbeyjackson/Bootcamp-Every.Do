@@ -34,7 +34,7 @@
     
     // create ToDo items
     ToDo *item01 = [[ToDo alloc]initWithTitle:@"Get groceries" itemDescription:@"bananas, bread, milk" itemPriority:3 andIsComplete:NO];
-    ToDo *item02 = [[ToDo alloc]initWithTitle:@"Get groceries" itemDescription:@"bananas, bread, milk" itemPriority:3 andIsComplete:NO];
+    ToDo *item02 = [[ToDo alloc]initWithTitle:@"Get groceries" itemDescription:@"bananas, bread, milk" itemPriority:3 andIsComplete:YES];
     ToDo *item03 = [[ToDo alloc]initWithTitle:@"Get groceries" itemDescription:@"bananas, bread, milk" itemPriority:3 andIsComplete:NO];
     ToDo *item04 = [[ToDo alloc]initWithTitle:@"Get groceries" itemDescription:@"bananas, bread, milk" itemPriority:3 andIsComplete:NO];
     ToDo *item05 = [[ToDo alloc]initWithTitle:@"Get groceries" itemDescription:@"bananas, bread, milk" itemPriority:3 andIsComplete:NO];
@@ -57,11 +57,6 @@
     
     [self performSegueWithIdentifier:@"addToDoItem" sender:nil];
     
-//    ToDo *item01 = [[ToDo alloc]initWithTitle:@"addd " itemDescription:@"bananas, bread, milk" itemPriority:3 andIsComplete:NO];
-//
-//    [self.toDoItemsArray insertObject:item01 atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Segues
@@ -77,8 +72,10 @@
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     AddItemViewController *source = [segue sourceViewController];
     ToDo *toDoItem = source.toDoItem;
-    [self.toDoItemsArray addObject:toDoItem];
-    [self.tableView reloadData];
+    if (toDoItem != nil) {
+        [self.toDoItemsArray addObject:toDoItem];
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Table View
@@ -95,9 +92,21 @@
     ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     ToDo *toDoItem = self.toDoItemsArray[indexPath.row];
+    
     cell.toDoItemTitleCell.text = [toDoItem itemTitle];
     cell.toDoItemDescriptionCell.text = [toDoItem itemDescription];
     cell.toDoItemPriorityCell.text = [NSString stringWithFormat:@"%d",[toDoItem itemPriority]];
+    
+    if (toDoItem.isComplete) {
+        NSMutableAttributedString *strikeThroughTitle = [[NSMutableAttributedString alloc] initWithString:toDoItem.itemTitle];
+        [strikeThroughTitle addAttribute:NSStrikethroughStyleAttributeName value:@2 range:NSMakeRange(0, toDoItem.itemTitle.length)];
+        cell.toDoItemTitleCell.attributedText = strikeThroughTitle;
+        
+        NSMutableAttributedString *strikeThroughDescription = [[NSMutableAttributedString alloc] initWithString:toDoItem.itemDescription];
+        [strikeThroughDescription addAttribute:NSStrikethroughStyleAttributeName value:@2 range:NSMakeRange(0, toDoItem.itemDescription.length)];
+        cell.toDoItemDescriptionCell.attributedText = strikeThroughDescription;
+    }
+
     return cell;
 }
 

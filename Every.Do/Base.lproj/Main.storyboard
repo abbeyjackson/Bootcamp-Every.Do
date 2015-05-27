@@ -210,7 +210,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addItemCancelButton:" destination="QOC-pT-c6A" eventType="touchUpInside" id="et2-4w-CsY"/>
                                     <segue destination="N2b-zg-J7j" kind="unwind" unwindAction="unwindToList:" id="27p-uD-kGh"/>
                                 </connections>
                             </button>
@@ -255,7 +254,6 @@
                         <outlet property="addToDoItemDescription" destination="bLD-wa-LrX" id="5sI-LJ-Uyt"/>
                         <outlet property="addToDoItemPriority" destination="WEV-z4-QyG" id="2Sy-Pe-BN7"/>
                         <outlet property="addToDoItemTitle" destination="gst-in-XN3" id="i9O-rZ-5Wu"/>
-                        <outlet property="cancelButton" destination="9Ky-0j-JIq" id="GNd-E5-la7"/>
                         <outlet property="doneButton" destination="Bkh-OM-Y4b" id="Xbl-iu-vWg"/>
                     </connections>
                 </viewController>

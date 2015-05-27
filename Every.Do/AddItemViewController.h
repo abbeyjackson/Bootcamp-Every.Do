@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *addToDoItemTitle;
 @property (weak, nonatomic) IBOutlet UITextField *addToDoItemDescription;
 @property (weak, nonatomic) IBOutlet UITextField *addToDoItemPriority;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (nonatomic) ToDo *toDoItem;
 

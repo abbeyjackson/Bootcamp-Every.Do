@@ -31,8 +31,10 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    self.toDoItem = [[ToDo alloc]initWithTitle:self.addToDoItemTitle.text itemDescription:self.addToDoItemDescription.text itemPriority:[self.addToDoItemPriority.text intValue] andIsComplete:NO];
+    if (sender != self.doneButton) return;
+    if (self.addToDoItemTitle.text.length > 0){
+        self.toDoItem = [[ToDo alloc]initWithTitle:self.addToDoItemTitle.text itemDescription:self.addToDoItemDescription.text itemPriority:[self.addToDoItemPriority.text intValue] andIsComplete:NO];
+    }
 }
 
 
