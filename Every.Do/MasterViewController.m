@@ -107,7 +107,27 @@
         cell.toDoItemDescriptionCell.attributedText = strikeThroughDescription;
     }
 
+    UISwipeGestureRecognizer *swipeToComplete = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(changeCompleteStatus:)];
+    
+    [self.tableView addGestureRecognizer:swipeToComplete];
+    
+    
     return cell;
+}
+
+-(void)changeCompleteStatus:(UIGestureRecognizer*)sender{
+    CGPoint swipePoint = [sender locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:swipePoint];
+    ToDo *toDoItem = self.toDoItemsArray[indexPath.row];
+    if (!toDoItem.isComplete) {
+        toDoItem.isComplete = YES;
+    }
+    else {
+        toDoItem.isComplete = NO;
+    }
+    
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
